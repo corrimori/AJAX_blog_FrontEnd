@@ -18,7 +18,7 @@ const loadEntries = () => {
     })
 }
 
-function showForm() {
+const showForm = () => {
   console.log('in showForm function')
   let createPostForm = document.getElementById('entryForm')
   createPostForm.style.display = 'block'
@@ -30,7 +30,18 @@ function showForm() {
   // }
 }
 
+const postEntry = () => {
+  console.log('in postEntry function =====');
+  let titleEntry = document.querySelector('#title').value
+  let contentEntry = document.querySelector('#content').value
+  console.log('titleEntry>>> ', titleEntry)
+  console.log('contentEntry>>> ', contentEntry)
 
+  axios.post('http://localhost:3001/blogs', { title: titleEntry, content: contentEntry })
+  .then(function(response){
+    console.log('saved entry successfully')
+  });
+}
 
 
 document.addEventListener('DOMContentLoaded', loadEntries)
