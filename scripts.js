@@ -30,6 +30,23 @@ const showForm = () => {
   // }
 }
 
+const showEntry = (titleEntry, contentEntry) => {
+  console.log('in showEntry function')
+  let displayEntry = document.getElementById('displayBlog')
+  displayEntry.style.display = 'block'
+
+  let titleDisplay = document.createElement("H1")
+  let blogTitle = document.createTextNode(titleEntry)
+  titleDisplay.appendChild(blogTitle)
+  displayEntry.appendChild(titleDisplay)
+
+  // let showTitle = document.getElementById('displayTitle')
+  // showTitle.innerHTML = titleEntry
+  // // displayTitle.append(showTitle)
+  // .appendChild(showTitle)
+
+}
+
 const postEntry = () => {
   console.log('in postEntry function =====');
   let titleEntry = document.querySelector('#title').value
@@ -41,6 +58,12 @@ const postEntry = () => {
   .then(function(response){
     console.log('saved entry successfully')
   });
+
+  let createPostForm = document.getElementById('entryForm')
+  createPostForm.style.display = 'none'
+
+  showEntry(titleEntry, contentEntry)
+
 }
 
 

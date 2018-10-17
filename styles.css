@@ -71,6 +71,11 @@ li a:hover:not(.active) {
   display: none;
 }
 
+#displayBlog {
+  margin-top: 50px;
+  display: none;
+}
+
 #title {
   height: 30px;
   width: 600px;
