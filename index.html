@@ -11,16 +11,37 @@
         <br><br><br>
         <h1>Welcome to My Blog</h1>
         <h3>About Technology and Fun Stuff<h3>
-        <button type="button" name="button">Create a New Post</button>
+        <button type="button" onclick="showForm()">Create a New Post</button>
       </div>
-      <div class="blogEntry">
-        <form>
-          <label for="">Title:</label>
-          <input type="text" name="title" value="title">
-          <br>
-          <label for="">Content:</label>
-          <input type="text" name="content" value="content">
-        </form>
+
+      <div class="container">
+          <div class="row">
+
+              <div class="column1">
+                  <div id="list">
+                      <ul class="list-group">
+                          <li><a href="#/posts/100" class="list-group-item">entry1</a><br></li>
+                          <li><a href="#/posts/101" class="list-group-item">entry2</a><br></li>
+                          <li><a href="#/posts/102" class="list-group-item">entry3</a><br></li>
+                      </ul>
+                  </div>
+              </div>
+
+              <div class="column2">
+                <div id="entryForm">
+                  <form>
+                    <label for="title">Title:</label><br>
+                    <input type="text" id="title">
+                    <br>
+                    <label for="content">Content:</label><br>
+                    <input type="text" id="content"><br>
+                    <br>
+                    <button type="button" name="button">Create New Post</button>
+                  </form>
+                </div>
+              </div>
+
+          </div>
       </div>
 
     <script src="scripts.js"></script>
