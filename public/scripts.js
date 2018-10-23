@@ -1,10 +1,11 @@
 const loadEntries = () => {
   console.log("load event detected...")
 
+  let apiUrl = 'https://desolate-stream-84682.herokuapp.com/blogs'
   let list = document.querySelector('#entryList')
   list.innerHTML = ''
 
-  axios.get('http://localhost:3001/blogs').then(result => {
+  axios.get(apiUrl).then(result => {
     let data = result.data
     data.forEach( element => {
       // console.log(element.title)
