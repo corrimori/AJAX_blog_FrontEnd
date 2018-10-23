@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/corrimori/AJAX_blog_FrontEnd/issues"
   },
-  "homepage": "https://github.com/corrimori/AJAX_blog_FrontEnd#readme"
+  "homepage": "https://github.com/corrimori/AJAX_blog_FrontEnd#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
