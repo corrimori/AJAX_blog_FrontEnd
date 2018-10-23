@@ -83,7 +83,7 @@ const postEntry = () => {
   console.log('titleEntry>>> ', titleEntry)
   console.log('contentEntry>>> ', contentEntry)
 
-  axios.post('http://localhost:3001/blogs', { title: titleEntry, content: contentEntry })
+  axios.post(apiUrl, { title: titleEntry, content: contentEntry })
   .then(function(response){
     console.log('saved entry successfully')
   });
