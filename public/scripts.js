@@ -1,7 +1,8 @@
+let apiUrl = 'https://desolate-stream-84682.herokuapp.com/blogs'
+
 const loadEntries = () => {
   console.log("load event detected...")
 
-  let apiUrl = 'https://desolate-stream-84682.herokuapp.com/blogs'
   let list = document.querySelector('#entryList')
   list.innerHTML = ''
 
