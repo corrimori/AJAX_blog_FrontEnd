@@ -8,9 +8,9 @@ const loadEntries = () => {
 
   axios.get(apiUrl).then(result => {
     let data = result.data
-    console.log('data', data);
+    // console.log('data', data);
     data.forEach( element => {
-      // console.log(element.title)
+      // console.log('element.title--->', element.title)
       let listItem = document.createElement('li')
       listItem.innerHTML = element.title
       list.appendChild(listItem).addEventListener('click', () => {
@@ -24,30 +24,25 @@ const loadEntries = () => {
         //get titleEntry & contentEntry to pass into params
         let titleEntry = element.title
         let contentEntry = element.content
-        showEntry(titleEntry, contentEntry)
+        showEntry(titleEntry, contentEntry, element.id)
       })
-      // element.addEventListener('click', () =>{
-      //   li.remove()
-      })
+
     })
+  })
 }
 
-
-
-// when listitem clicked
-// display/show entry on right
-
-// when delete
-// get id of list listitem
-// axios call to remove item
 
 const showForm = () => {
   document.querySelector('#title').value = ''
   document.querySelector('#content').value = ''
-  document.getElementById('displayBlog').innerHTML = ''
+  // hide displayBlog while entryForm is displayed
+  document.getElementById('displayBlog').style.display = 'none'
+  // document.getElementById('displayBlog').innerHTML = ''
+
 
   console.log('in showForm function')
   let createPostForm = document.getElementById('entryForm')
+  // display entry form by setting to 'block'
   createPostForm.style.display = 'block'
 
 
@@ -59,8 +54,17 @@ const showForm = () => {
   // }
 }
 
+const deleteEntry = (id) => {
+  axios.delete(`${apiUrl}/${id}`).then( response => {
+    console.log('response>>>', response);
+    document.getElementById('displayBlog').style.display = 'none'
+    loadEntries()
+  })
+}
+
 //function to show Blog Entry once submit button is pressed
 const showEntry = (titleEntry, contentEntry, id) => {
+  console.log('id>>', id);
   let displayEntry = document.getElementById('displayBlog')
   displayEntry.innerHTML = ''
   loadEntries()
@@ -71,7 +75,7 @@ const showEntry = (titleEntry, contentEntry, id) => {
   let div = document.createElement('div')
   div.innerHTML = `<nav align="right">
     <a id="editLink" href="#">Edit</a>
-    <a id="deleteLink" href="#">Delete</a>
+    <a id="deleteLink" onClick="deleteEntry(${id})" href="#">Delete</a>
     </nav>`
 
   let titleDisplay = document.createElement("H2")

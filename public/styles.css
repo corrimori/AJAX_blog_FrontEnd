@@ -73,7 +73,7 @@ li a:hover:not(.active) {
 }
 
 #displayBlog {
-  margin-top: 50px;
+  margin-top: 0;
   display: none;
 }
 
